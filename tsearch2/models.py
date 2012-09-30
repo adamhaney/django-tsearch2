@@ -143,7 +143,6 @@ class SearchManager(models.Manager):
 
         # Iterate over fields defined to index on manager, or all text fields in model
         self.fields = self.fields if self.fields else self._find_text_fields()
-        print "line 146", self.fields
 
         for model, tsvector_sql in self._get_tsvector_sql_for_fields(self.fields).items():
 
@@ -168,7 +167,6 @@ class SearchManager(models.Manager):
             )
 
         cursor = connection.cursor()
-        print "line 171", sql
         cursor.execute(sql)
         cursor.close()
 
