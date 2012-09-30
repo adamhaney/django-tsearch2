@@ -21,16 +21,16 @@ SearchableModel and override the model manager.
 Example Model
 ^^^^^^^^^^^^^
 
-    .. code:: python
-    class model(SearchableModel):
-        name = models.CharField(max_length=255)
-        description = models.TextField()
-        objects = SearchManager(
-            {
-	        'name': 'A',
-                'description': 'C"
-                 }
-            )
+.. code:: python
+class model(SearchableModel):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    objects = SearchManager(
+        {
+           'name': 'A',
+           'description': 'C"
+            }
+        )
 
 NOTE: the letters A-D are used to denote the sorting rank for fields
 that are being searched.
