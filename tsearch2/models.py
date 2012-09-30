@@ -224,4 +224,4 @@ def create_normalization_function(sender, **kwargs):
     cursor.execute(SQL_NORMALIZATION_FUNCTION)
 
 
-post_syncdb.connect(create_normalization_function)
+#post_syncdb.connect(create_normalization_function)
