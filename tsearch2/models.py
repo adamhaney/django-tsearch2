@@ -143,7 +143,7 @@ class SearchManager(models.Manager):
 
         # Iterate over fields defined to index on manager, or all text fields in model
         self.fields = self.fields if self.fields else self._find_text_fields()
-        print self.fields
+        print "line 146", self.fields
 
         for model, tsvector_sql in self._get_tsvector_sql_for_fields(self.fields).items():
 
@@ -154,17 +154,21 @@ class SearchManager(models.Manager):
                 else:
                     ids = pk
                 where = u"WHERE %s IN (%s)" % (
-                    quote_name(model._meta.pk.column), ids
+                    quote_name(model._meta.pk.column),
+                    ids
                 )
             else:
                 where = ''
 
             sql = u"UPDATE %s SET %s = %s %s;" % (
-                quote_name(model._meta.db_table), quote_name(self.vector_field.column), tsvector_sql, where,
+                quote_name(model._meta.db_table),
+                quote_name(self.vector_field.column),
+                tsvector_sql,
+                where,
             )
 
         cursor = connection.cursor()
-        print sql
+        print "line 171", sql
         cursor.execute(sql)
         cursor.close()
 
