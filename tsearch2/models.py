@@ -143,7 +143,7 @@ class SearchManager(models.Manager):
 
         # Iterate over fields defined to index on manager, or all text fields in model
         self.fields = self.fields if self.fields else self._find_text_fields()
-        print fields
+        print self.fields
 
         for model, tsvector_sql in self._get_tsvector_sql_for_fields(self.fields).items():
 
