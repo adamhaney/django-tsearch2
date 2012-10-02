@@ -153,13 +153,17 @@ class SearchManager(models.Manager):
                 else:
                     ids = pk
                 where = u"WHERE %s IN (%s)" % (
-                    quote_name(model._meta.pk.column), ids
+                    quote_name(model._meta.pk.column),
+                    ids
                 )
             else:
                 where = ''
 
             sql = u"UPDATE %s SET %s = %s %s;" % (
-                quote_name(model._meta.db_table), quote_name(self.vector_field.column), tsvector_sql, where,
+                quote_name(model._meta.db_table),
+                quote_name(self.vector_field.column),
+                tsvector_sql,
+                where,
             )
 
         cursor = connection.cursor()

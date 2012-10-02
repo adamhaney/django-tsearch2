@@ -1,0 +1,9 @@
+dependencies:
+  override:
+    - virtualenv ./tsearch2_dev/env
+    - ./tsearch2_dev/env/bin/python setup.py install
+    
+
+test:
+  override:
+    - cd tsearch2_dev && ./env/bin/python manage.py test
