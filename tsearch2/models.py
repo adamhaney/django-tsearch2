@@ -203,9 +203,9 @@ class SearchableModel(models.Model):
 
 
 SQL_NORMALIZATION_FUNCTION = u"""
-drop language if exists plpythonu cascade;
+drop extension if exists plpythonu cascade;
 
-create language plpythonu;
+create extension plpythonu;
 
 create or replace function norm_text_utf8 (string text)
   returns varchar
