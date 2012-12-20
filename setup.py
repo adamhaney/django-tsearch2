@@ -9,5 +9,5 @@ setup(
     author_email = "hcarvalhoalves@gmail.com",
     description = "TSearch2 support for Django",
     url = "http://github.com/hcarvalhoalves/django-tsearch2",
-    install_requires = ['django==1.4', 'psycopg2']
+    install_requires = ['psycopg2']
 )
