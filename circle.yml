@@ -1,8 +1,9 @@
 dependencies:
   override:
     - virtualenv ./tsearch2_dev/env
+    - ./tsearch2_dev/env/bin/pip install django
     - ./tsearch2_dev/env/bin/python setup.py install
-    
+
 
 test:
   override:
