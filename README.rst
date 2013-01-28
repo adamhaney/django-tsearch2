@@ -36,3 +36,12 @@ NOTE: the letters A-D are used to denote the sorting rank for fields
 that are being searched.
 	     
 
+Bugs
+^^^^
+
+South does not yet recognize the VectorField datatype.  
+
+When changing an existing model to be a SearchableModel, you must
+add a column named search_index, of type tsvector to the table:
+
+alter table <table name> add search_index tsvector;
