@@ -200,3 +200,11 @@ class SearchableModel(models.Model):
         super(SearchableModel, self).save(*args, **kwargs)
         if should_update_index:
             self.update_index()
+
+def create_normalization_function(sender, **kwargs):
+    UNACCENT_EXTENSION_SQL = "CREATE EXTENSION unaccent"
+    
+    cursor = connection.cursor()  	
+    cursor.execute(UNACCENT_EXTENSION_SQL)
+
+post_syncdb.connect(create_unaccent_extension)
